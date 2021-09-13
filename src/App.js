@@ -12,11 +12,23 @@ class App extends React.Component {
       blueCar: false,
       yellowCar: false,
     }
+    this.moveCar = this.moveCar.bind(this);
+  }
+
+  moveCar(car) {
+    this.setState((prevState) => ({
+      [car]: !prevState[car]
+    }));
   }
 
   render() {
+    const contextValue = {
+      ...this.state,
+      moveCar: this.moveCar,
+    };
+
     return (
-      <CarsContext.Provider value={this.state}>
+      <CarsContext.Provider value={contextValue}>
         <Cars />
       </CarsContext.Provider>
     );
