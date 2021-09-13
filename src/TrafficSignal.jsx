@@ -1,16 +1,11 @@
 // src/TrafficSignal.jsx
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { changeSignal } from './redux/actionCreators';
 import redSignal from './images/redSignal.jpeg';
 import yellowSignal from './images/yellowSignal.jpeg';
 import greenSignal from './images/greenSignal.jpeg';
 import trafficContext from './contextAPI';
 
-
-
-const TrafficSignal = ({ signalColor, changeSignal }) => {
+const TrafficSignal = () => {
   const renderSignal = (trafficLight) => {
   
     if (trafficLight === 'red') return redSignal;
@@ -42,15 +37,4 @@ const TrafficSignal = ({ signalColor, changeSignal }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  signalColor: state.trafficReducer.signal.color
-});
-
-const mapDispatchToProps = { changeSignal };
-
-TrafficSignal.propTypes = {
-  changeSignal: PropTypes.func.isRequired,
-  signalColor: PropTypes.string.isRequired,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TrafficSignal);
+export default TrafficSignal;
