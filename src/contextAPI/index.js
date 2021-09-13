@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
 
-const carsContext = createContext();
+const CarsContext = createContext();
 
-export default carsContext;
+export default CarsContext;
