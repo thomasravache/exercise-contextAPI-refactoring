@@ -15,11 +15,18 @@ function App() {
     }))
   }
 
+  const changeSignal = ({ target: { innerText } }) => {
+    const buttonText = innerText.toLowerCase();
+
+    setTrafficLight(buttonText);
+  }
+
   const contextValue = {
     trafficLight,
     cars,
     functions: {
       moveCar,
+      changeSignal,
     }
   }
 
